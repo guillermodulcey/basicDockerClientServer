@@ -1,0 +1,10 @@
+docker run -ti -d --name server{trabajadores} -p {PORT+i}:{PORT+i} -v /Users/cinvestav-UT/Documents/Distribuidos/Server:/home/simulator pyc
+docker exec -ti server{trabajadores} python3 ServerUp.py {PORT+i}
+
+gcc -o queuesimulator/single queuesimulator/single.c -lm
+
+python3 ServersUp.py 5 50000 simulador run
+python3 ServersUp.py 5 55000 generador run
+
+python3 ServersUp.py 5 50000 simulador kill
+python3 ServersUp.py 5 55000 generador kill
